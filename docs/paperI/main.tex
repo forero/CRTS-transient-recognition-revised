@@ -260,7 +260,7 @@ an f/1.8 Schmidt telescope located in the Santa Catalina Mountains, north of Tuc
 Arizona and is equipped with a 111-megapixel  detector, and covered
 4000 square degrees per night, with a limiting magnitude of 19.5 in
 the V band.  
-The public CRTS data base reports the source flux and its
+The public CRTS data base reports the source magnitudes and its
 corresponding uncertainty \citep{1996PASP..108..851S}.
 
 
@@ -277,22 +277,19 @@ e.g. SN? or sometimes multiple possible classes are found for a single
 event e.g. SN/CV.
 Table \ref{Top-Transient-Classes} summarized the number of objects in each class.
 
+We obtained sources from the transient dataset directly from
+researchers of the CRTS project. 
+To compile the non-transient dataset we retrieve sources in the dataset from the CRTS
+online catalogue, by sampling light curves of objects within a 0.006
+degree radius from CRTS detected transients, and removing known
+transient light curves from that set. 
+The database includes all lightcurves with at least one
+observation.
 
-We use the light curves of $4269$ unique transient events that
-contain at least 5 observations.
-We also use $15193$ non-transient sources with at least 5 observations each. 
-We obtained sources from the transient dataset directly from researchers of the CRTS project. Alternatively, we retrieved sources in the dataset from the
-CRTS online catalogue, by sampling light curves of objects within a 0.006 
-degree radius from CRTS detected transients, and removing known transient 
-light curves from that set. 
-Though this process should return only non-transient sources, it is
-possible that non-detected transients were captured and catalogued
-incorrectly as 'non-transients'.  
 Table \ref{Transient-Observation-Count} and
 Table \ref{Non-Transient-Observation-Count} summarize some statistics
 on the number of observations available for each light curve for the
 transient and non-transient datasets, respectively.  
-
 
 
 % Number of transients per transient class
@@ -756,23 +753,16 @@ The features extracted from light curves were either statistical
 descriptors of the observations, or polynomial curve fitting
 coefficients applied to the light curves.   
 Overall the best classifier for all tasks was the Random Forest.
-In this model the most important feature was always stetson\textunderscore j.
+In this model the most important feature was always stetson$\_$j.
 
 In a second paper we will present another reference dataset for
 astronomical transient event recognition based on images of the
 CATALINA survey. 
-We will preset tests using state-of-the art deep learning
-techniques for transient classification.
-
-
-
-
+The corresponding tests will use  state-of-the art deep learning
+techniques for transient classification. 
 
 \section*{Acknowledgements}
 
-% The Acknowledgements section is not numbered. Here you can thank helpful
-% colleagues, acknowledge funding agencies, telescopes and facilities used etc.
-% Try to keep it short.
 We thank Andrew Drake for sharing with us the CRTS Transient dataset
 used in this project.  
 We thank Juan Pablo Reyes, Dominique Fouchez for helping with the
@@ -787,11 +777,6 @@ Foundation under grant NSF grants AST-1313422, AST-1413600, and
 AST-1518308.  The CSS survey is funded by the National Aeronautics
 and Space Administration under Grant No. NNG05GF22G issued through
 the Science Mission Directorate Near-Earth Objects Observations Program.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
-
-% The best way to enter references is to use BibTeX:
 
 \bibliographystyle{mnras}
 \bibliography{bibliography}
