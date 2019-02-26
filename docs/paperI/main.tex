@@ -316,20 +316,57 @@ transient and non-transient datasets, respectively.
 
 \section{Repository Description} \label{section_code}
 
-The repository that contains the code, data and trained models we used in this project is found in the website \url{https://github.com/diegoalejogm/crts-transient-recognition}. For this project we used various python libraries: \texttt{jupyter} (1.0.0), \texttt{numpy} (1.14.3), \texttt{pandas} (0.22.0) and \texttt{scikit-learn} (0.19.1). Details other dependencies can be found in the included file \texttt{requirements.txt}.
+The repository that contains the lightcurves and some code to process
+the data can be found in
+\url{https://github.com/mneira10/CRTS-transient-recognition-revised}.
+For
+this project we used various python libraries: \texttt{jupyter}
+(1.0.0), \texttt{numpy} (1.14.3), \texttt{pandas} (0.22.0) and
+\texttt{scikit-learn} (0.19.1). Details other dependencies can be
+found in the included file \texttt{requirements.txt}. 
 
-We organized the repository in three main folders. The first one is \texttt{data}, and it contains the data we used in this project. We split data in three directories: \texttt{lightcurves}, \texttt{features} and \texttt{inputs}. The former contains pandas dataframes for raw and curated light-curves. The \texttt{features} subfolder contains the resulting features of pre-processing the light-curves, for both transients and non-transients. Finally, the \texttt{inputs} subfolder contains the already split training and testing inputs for the following hyper-parameter combinations: classification task, number of features, minimum number of observations, and balanced/unbalanced data. Each one of the input files contains a numpy tuple with the structure: \textit{(train features, train labels, test features, test labels)}
+The repository has three main folders
 
-The second main folder in the repository is \texttt{notebooks}. It contains all the code used for this project. The jupyter notebooks contain the pipeline of our proposed experimental framework, and they are numbered in sequential order. Moreover, each notebook is documented within itself. Two additional non-numbered notebooks are used for exploration purposes. Conversely, the \texttt{.py} files are used to contain the python code which is used in the notebooks. They're separated by task type.
+\begin{itemize}
+\item \texttt{data}: compiled lightcurves and labels. This directory is
+itself split data into three: 
+\begin{itemize}
+\item \texttt{lightcurves}: raw light-curves as csv files.
+\item \texttt{features}:  resulting features of pre-processing the
+light-curves, for both transients and non-transients. 
+\item \texttt{inputs} data-set split into training/test for the
+  different machine learning classification tasks. 
+It splits the data into different meta-parameters:
+classification task, number of features, minimum number of
+observations, and balanced/unbalanced data. Each one of the input
+files contains a numpy tuple with the structure: \textit{(train
+  features, train labels, test features, test labels)} 
+\end{itemize}
+\item \texttt{notebooks}. Contains all the code for the ML tests. 
+There are three numbered jupyter notebooks summarizing our experimental framework. 
+The documentation is included into each notebook.
+There are various \texttt{.py} files with the python routines used by
+the  notebooks. 
+\item \texttt{results}. Contains the products of the ML code. 
+  One result type is named dataframes, which contains a pandas
+  dataframe for each task. Each dataframe contains the testing and
+  training results, including scores and confusion matrices.  
+  On the other hand, the results sub-folder contains the feature
+  importance list figures presented in this document.  
+\end{itemize}
 
-Finally, the \texttt{results} directory contains the products of running the code. One result type is named dataframes, which contains a pandas dataframe for each task. Each dataframe contains the testing and training results, including scores and confusion matrices.  On the other hand, the results sub-folder contains the feature importance list figures presented in this document.
 
-For more information on the repository, make sure to read the README file included, or email us directly.
-
-
-The tables \ref{Transient-Observation-Count} and \ref{Non-Transient-Observation-Count} in this annex contain statistical descriptors of the light curves' observation count, for transient and non-transient curves that contain at least 5 observations.
-Table \ref{Transient-Observation-Count} makes reference to transient events, whereas table \ref{Non-Transient-Observation-Count} refers to non-transient objects. 
-Each of these tables present the mean, standard deviation, percentiles (25, 50 and 75) and maximum number of observations per light curve found in each dataset.
+The tables \ref{Transient-Observation-Count} and
+\ref{Non-Transient-Observation-Count} in this annex contain
+statistical descriptors of the light curves' observation count, for
+transient and non-transient curves that contain at least 5
+observations. 
+Table \ref{Transient-Observation-Count} makes reference to transient
+events, whereas table \ref{Non-Transient-Observation-Count} refers to
+non-transient objects.  
+Each of these tables present the mean, standard deviation, percentiles
+(25, 50 and 75) and maximum number of observations per light curve
+found in each dataset. 
 
 % Number of transients per transient class
 \begin{table}
